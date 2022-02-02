@@ -1,0 +1,51 @@
+.couple {
+    width: 100%;
+}
+
+.container, 
+.container h2, 
+.container p,
+.container div
+{
+    color: #000;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px;
+}
+
+.container > h2 {
+    margin-bottom: 2rem;
+}
+
+.message {
+    margin-bottom: 3rem;
+}
+
+.message > p {
+    width: 100%;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.photos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photoContainer {
+    margin: 0 30px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.photo {
+    border-radius: 50%;
+}

@@ -1,0 +1,57 @@
+.welcome {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/home.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 80px;
+}
+
+.bannerInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bannerInfo > span {
+    text-align: center;
+    padding: 0 30px;
+}
+
+.bannerInfoName {
+    font-family: 'Good Vibes Pro', cursive;
+    font-size: 40px;
+    line-height: 43px;
+    position: relative;
+}
+
+.bannerInfoName:before, .bannerInfoName:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    background-color: #FFFFFF;
+}
+
+.bannerInfoName:before {
+    left: -1px;
+}
+
+.bannerInfoName:after {
+    right: -1px;
+}

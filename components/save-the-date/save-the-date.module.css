@@ -1,0 +1,41 @@
+.saveTheDate{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/save-date.jpg");
+    background-size: cover;
+    background-position: center top;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 6rem;
+}
+
+.message{
+    margin-top: 30px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.timerContainer {
+    width: 100%;
+    margin-top: 10vh;
+    font-family: 'Good Vibes Pro';
+    font-size: 2.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 992px) {
+    .timerContainer {
+        flex-direction: row;
+        margin-top: 20vh;
+    }
+}

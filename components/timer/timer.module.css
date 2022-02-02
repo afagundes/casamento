@@ -1,0 +1,11 @@
+.timer {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1200px) {
+    .timer {
+        margin: 0 4vw;
+    }
+}

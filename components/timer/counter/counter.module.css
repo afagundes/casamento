@@ -1,0 +1,19 @@
+.counter {
+    text-align: center;
+    margin: 0 30px;
+}
+
+.counter > span {
+    display: block;
+}
+
+.value {
+    font-size: 40px;
+}
+
+.unity {
+    font-size: 12px;
+    font-weight: 100;
+    position: relative;
+    top: -5px;
+}
