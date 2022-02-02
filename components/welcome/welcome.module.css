@@ -65,9 +65,11 @@
 /* Mobile */
 @media (max-width: 480px) {
     .welcome {
-        background-size: cover;
         background-position: -520px bottom;
         background-attachment: fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
     }
 
     .title {
