@@ -1,7 +1,8 @@
 import Head from "next/head"
 import Couple from "../components/couple/couple"
 import Layout from "../components/layout/layout"
-import SaveTheDate from "../components/save-the-date/save-the-date"
+import TimeToWedding from "../components/time-to-wedding/save-the-date"
+
 import Welcome from "../components/welcome/welcome"
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       <Layout>
         <Welcome />
         <Couple />
-        <SaveTheDate />
+        <TimeToWedding />
       </Layout>
     </>
   )

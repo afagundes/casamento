@@ -1,4 +1,4 @@
-.saveTheDate{
+.timeToWedding {
     width: 100%;
     height: 100vh;
     background: url("/images/fields.png") no-repeat;
@@ -51,7 +51,7 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-    .saveTheDate{
+    .timeToWedding{
         background-size: cover;
         background-position: left center;
     }

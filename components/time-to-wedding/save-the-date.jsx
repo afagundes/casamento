@@ -1,20 +1,22 @@
 import styles from './save-the-date.module.css'
 import Timer from '../timer/timer'
 
-export default function SaveTheDate() {
+export default function TimeToWedding() {
     const eventDate = '10-07-2022 15:00:00';
 
     return (
-        <section className={styles.saveTheDate}>
+        <section className={styles.timeToWedding}>
             <div className={styles.container}>
                 <h2>O Grande Dia<br />10 . Julho . 2022</h2>
 
                 <div className={styles.messageContainer}>
                     <p className={styles.message}>
-                        É, meus amigos. Aconteceu. Nós vamos nos casar logo mais.
+                        Em breve vamos celebrar o amor, a amizade e a união do casal mais 
+                        apaixonado que vocês já conheceram.
                     </p>
                     <p className={styles.message}>
-                        E como não poderia deixar de ser vamos fazer uma festa bem legal com vários drinks e comida boa pra todo mundo.<br />
+                        Contamos com a presença de todos no Sítio São Jorge - Jardim Secreto em 
+                        São Bernardo do Campo - SP às 15:00.
                     </p>
                 </div>
                 
