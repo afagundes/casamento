@@ -43,6 +43,12 @@
     }
 }
 
+@media (min-width: 1500px) and (min-height: 800px) {
+    .container {
+        padding: 9rem 2.5rem;
+    }
+}
+
 /* Mobile */
 @media (max-width: 480px) {
     .saveTheDate{
