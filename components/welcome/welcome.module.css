@@ -63,7 +63,7 @@
 /* Mobile */
 @media (max-width: 480px) {
     .title {
-        margin-bottom: 10vh;
+        margin-bottom: 8vh;
         font-size: 120px;
     }
 

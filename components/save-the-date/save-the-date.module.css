@@ -49,16 +49,14 @@
         font-size: 2.9rem;
     }
 
-    .messageContainer {
-        margin-top: 6rem;
+    .messageContainer, 
+    .timerContainer
+    {
+        margin-top: 7rem;
     }
 
     .message {
         margin-top: 20px;
-    }
-
-    .timerContainer {
-        margin-top: 6rem;
     }
 }
 
