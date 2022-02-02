@@ -45,6 +45,10 @@
 
 /* Mobile */
 @media (max-width: 480px) {
+    .container {
+        padding: 4rem 2.5rem;
+    }
+
     .container h2 {
         font-size: 2.9rem;
     }
@@ -52,7 +56,7 @@
     .messageContainer, 
     .timerContainer
     {
-        margin-top: 7rem;
+        margin-top: 8rem;
     }
 
     .message {
