@@ -10,12 +10,17 @@
 .container {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     padding-bottom: 80px;
+}
+
+.container h1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
 }
 
 .bannerInfo {
@@ -24,8 +29,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 0.5rem;
+    padding-bottom: 2rem;
 }
 
 .bannerInfo > span {
@@ -78,11 +84,17 @@
     .container {
         padding-bottom: 0;
         justify-content: center;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .container h1 {
+        background-color: unset;
     }
 
     .bannerInfo {
         flex-direction: column;
-        margin-top: 50px;        
+        margin-top: 50px;
+        padding-bottom: 0.5rem;
     }
 
     .bannerInfoName {
@@ -92,6 +104,10 @@
 
     .mobileOnly {
         display: inline;
+    }
+
+    .breakMobile {
+        display: block;
     }
 
 }
