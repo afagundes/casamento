@@ -11,7 +11,7 @@ export default function Home() {
         <title>Mari &amp; Ari</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Casamento Mariana e Archimedes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"></meta>
       </Head>
       <Layout>
         <Welcome />
