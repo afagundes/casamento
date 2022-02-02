@@ -23,6 +23,7 @@ const Couple = () => {
                   width={150}
                   height={150}
                   className={styles.photo}
+                  alt="Archimedes, vulgo Ari, vulgo O Noivo"
                 />
               </div>
 
@@ -35,6 +36,7 @@ const Couple = () => {
                   width={150}
                   height={150}
                   className={styles.photo}
+                  alt="Mariana, vulgo A Noiva"
                 />
               </div>
           </div>
