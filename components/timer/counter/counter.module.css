@@ -17,3 +17,15 @@
     position: relative;
     top: -5px;
 }
+
+@media (min-width: 500px) {
+    .counter {
+        margin: 0 30px;
+    }
+}
+
+@media (max-width: 499px) {
+    .counter {
+        margin: 0 10px;
+    }
+}
