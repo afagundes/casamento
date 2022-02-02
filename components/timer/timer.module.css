@@ -2,9 +2,10 @@
     font-family: 'Open Sans', sans-serif;
     display: flex;
     align-items: center;
+    margin: 4vh 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1130px) {
     .timer {
         margin: 0 4vw;
     }
