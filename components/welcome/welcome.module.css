@@ -65,11 +65,10 @@
 /* Mobile */
 @media (max-width: 480px) {
     .welcome {
-        background-position: -520px bottom;
+        background: url("/images/background_2_hot_mobile.jpg") no-repeat;
+        background-position: right bottom;
         background-attachment: fixed;
         background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
     }
 
     .title {
