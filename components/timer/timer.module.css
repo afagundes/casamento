@@ -10,3 +10,17 @@
         margin: 0 4vw;
     }
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+    .timer {
+        margin: 1.5vh 4vw;
+    }
+}
+
+/* Tablet */
+@media (min-width: 802px) and (max-width: 1024px) {
+    .timer {
+        margin: 1.5vh 4vw;
+    }
+}

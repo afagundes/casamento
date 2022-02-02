@@ -7,7 +7,7 @@ const Welcome = () => {
                 <h1 className={styles.title}>Save the Date</h1>
                 <div className={styles.bannerInfo}>
                     <span>
-                        São Bernardo<br />
+                        São Bernardo <span className={styles.mobileOnly}>do Campo</span><br />
                         São Paulo
                     </span>
                     <span className={styles.bannerInfoName}>

@@ -24,8 +24,14 @@
     }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 480px) {
     .counter {
         margin: 0 20px;
+    }
+}
+
+@media (max-width: 480px) and (max-height: 843px) {
+    .counter {
+        margin: 0 15px;
     }
 }

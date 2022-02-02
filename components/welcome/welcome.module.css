@@ -56,13 +56,12 @@
     right: -1px;
 }
 
-@media (min-width: 561px) and (max-width: 660px) {
-    .title {
-        margin-bottom: 5vh;
-    }
+.mobileOnly {
+    display: none;
 }
 
-@media (max-width: 560px) {
+/* Mobile */
+@media (max-width: 480px) {
     .title {
         margin-bottom: 10vh;
         font-size: 120px;
@@ -73,7 +72,17 @@
         justify-content: center;
     }
 
+    .bannerInfo {
+        flex-direction: column;        
+    }
+
     .bannerInfoName {
         font-size: 30px;
+        margin: 50px 0;
     }
+
+    .mobileOnly {
+        display: inline;
+    }
+
 }

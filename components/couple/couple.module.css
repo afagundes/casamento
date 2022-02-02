@@ -49,3 +49,18 @@
 .photo {
     border-radius: 50%;
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 80px 35px;
+    }
+
+    .messageMargin {
+        margin-top: 25px;
+    }
+
+    .message > p {
+        margin-top: 20px;
+    }
+}

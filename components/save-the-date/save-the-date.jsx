@@ -8,9 +8,15 @@ export default function SaveTheDate() {
         <section className={styles.saveTheDate}>
             <div className={styles.container}>
                 <h2>O Grande Dia<br />10 . Julho . 2022</h2>
-                <p className={styles.message}>
-                    Decidimos dizer o nosso &quot;sim&quot; no Jardim Secreto do Sítio São Jorge em São Bernardo do Campo.
-                </p>
+
+                <div className={styles.messageContainer}>
+                    <p className={styles.message}>
+                        É, meus amigos. Aconteceu. Nós vamos nos casar logo mais.
+                    </p>
+                    <p className={styles.message}>
+                        E como não poderia deixar de ser vamos fazer uma festa bem legal com vários drinks e comida boa pra todo mundo.<br />
+                    </p>
+                </div>
                 
                 <div className={styles.timerContainer}>
                     Espera mais um pouco... 
