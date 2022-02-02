@@ -55,3 +55,25 @@
 .bannerInfoName:after {
     right: -1px;
 }
+
+@media (min-width: 561px) and (max-width: 660px) {
+    .title {
+        margin-bottom: 5vh;
+    }
+}
+
+@media (max-width: 560px) {
+    .title {
+        margin-bottom: 10vh;
+        font-size: 120px;
+    }
+
+    .container {
+        padding-bottom: 0;
+        justify-content: center;
+    }
+
+    .bannerInfoName {
+        font-size: 30px;
+    }
+}

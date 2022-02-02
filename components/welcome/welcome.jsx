@@ -4,7 +4,7 @@ const Welcome = () => {
     return (
         <section className={styles.welcome}>
             <div className={styles.container}>
-                <h1>Save the Date</h1>
+                <h1 className={styles.title}>Save the Date</h1>
                 <div className={styles.bannerInfo}>
                     <span>
                         São Bernardo<br />
