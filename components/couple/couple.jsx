@@ -33,7 +33,7 @@ const Couple = () => {
                 />
               </div>
 
-              <FaHeart size={20} />
+              <FaHeart size={20} className={styles.iconHeart} />
               
               <div className={styles.photoContainer}>
                 <Image

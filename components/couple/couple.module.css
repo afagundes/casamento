@@ -63,4 +63,8 @@
     .message > p {
         margin-top: 20px;
     }
+
+    .iconHeart {
+        width: 25px;
+    }
 }
