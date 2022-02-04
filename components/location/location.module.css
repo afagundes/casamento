@@ -15,7 +15,7 @@
 }
 
 .location iframe {
-    margin-top: var(--default-title-margin);
+    margin-top: calc(var(--default-title-margin) + 20px);
     width: 70vw;
     height: 40vw;
     border: 0;
@@ -26,6 +26,10 @@
     .location {
         padding: var(--section-padding-mobile);
         white-space: nowrap;
+    }
+
+    .location h2 {
+        margin-bottom: 20px;
     }
 
     .location iframe {

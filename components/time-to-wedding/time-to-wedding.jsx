@@ -15,8 +15,7 @@ export default function TimeToWedding() {
                         apaixonado que vocês já conheceram.
                     </p>
                     <p className={styles.message}>
-                        Contamos com a presença de todos no Sítio São Jorge - Jardim Secreto em 
-                        São Bernardo do Campo - SP às 15:30.
+                        Contamos com a presença de todos no Sítio São Jorge às 15:30.
                     </p>
                 </div>
                 
