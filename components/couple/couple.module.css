@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 80px;
+    padding: var(--section-padding);
 }
 
 .container > h2 {
@@ -53,7 +53,7 @@
 /* Mobile */
 @media (max-width: 480px) {
     .container {
-        padding: 80px 35px;
+        padding: var(--section-padding-mobile);
     }
 
     .messageMargin {

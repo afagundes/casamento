@@ -1,0 +1,30 @@
+.location {
+    background-color: var(--background-gray);
+    color: #000;
+    width: 100%;
+    padding: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.location h2 {
+    color: #000;
+    margin-bottom: var(--default-title-margin);
+}
+
+.location iframe {
+    margin-top: var(--default-title-margin);
+    width: 70vw;
+    height: 40vw;
+    border: 0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .location {
+        padding: var(--section-padding-mobile);
+        white-space: nowrap;
+    }
+}

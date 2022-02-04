@@ -17,7 +17,7 @@
 }
 
 .messageContainer {
-    margin-top: 40px;
+    margin-top: var(--default-title-margin);
 }
 
 .message {
