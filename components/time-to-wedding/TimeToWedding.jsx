@@ -1,5 +1,5 @@
 import styles from './timeToWedding.module.css'
-import Timer from '../timer/timer'
+import Timer from '../timer/Timer'
 
 export default function TimeToWedding() {
     const eventDate = '10-07-2022 15:00:00';
