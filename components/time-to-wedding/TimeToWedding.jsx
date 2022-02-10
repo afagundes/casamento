@@ -1,4 +1,4 @@
-import styles from './time-to-wedding.module.css'
+import styles from './timeToWedding.module.css'
 import Timer from '../timer/timer'
 
 export default function TimeToWedding() {

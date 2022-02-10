@@ -1,26 +1,17 @@
-import Head from "next/head"
-import Couple from "../components/couple/couple"
-import Layout from "../components/layout/layout"
-import Location from "../components/location/location"
-import TimeToWedding from "../components/time-to-wedding/time-to-wedding"
+import Couple from "../components/couple/Couple"
+import Layout from "../components/layout/Layout"
+import Location from "../components/location/Location"
+import TimeToWedding from "../components/time-to-wedding/TimeToWedding"
 
-import Welcome from "../components/welcome/welcome"
+import Welcome from "../components/welcome/Welcome"
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Mari &amp; Ari</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Casamento Mariana e Archimedes" />
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"></meta>
-      </Head>
-      <Layout>
-        <Welcome />
-        <Couple />
-        <Location />
-        <TimeToWedding />
-      </Layout>
-    </>
+    <Layout>
+      <Welcome />
+      <Couple />
+      <Location />
+      <TimeToWedding />
+    </Layout>
   )
 }
