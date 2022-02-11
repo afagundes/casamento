@@ -1,5 +1,5 @@
 import styles from './timer.module.css'
-import Counter from './counter/Counter';
+import Counter from './counter/counter';
 import { useEffect, useState } from 'react';
 
 const Timer = ({ eventDate }) => {
