@@ -10,8 +10,7 @@ export default function VerificationForm() {
     const verifyCode = async (e) => {
         const verificationCode = e.target.verificationCode.value;
 
-        if (!validateInput(verificationCode))
-            return;
+        if (!validateInput(verificationCode)) return;
 
         setIsSubmitting(true);
 
@@ -20,15 +19,12 @@ export default function VerificationForm() {
             body: verificationCode,
         });
 
-        validateResponse(response);
-        setIsSubmitting(false);
+        if (!validateResponse(response)) setIsSubmitting(false);
     }
 
     const validateInput = (value) => {
         if (!value || value === "") {
-            setMessage("É necessário digitar o código para prosseguir.");
-            setHasError(true);
-
+            showError("É necessário digitar o código para prosseguir.");
             return false;
         }
 
@@ -38,21 +34,24 @@ export default function VerificationForm() {
     const validateResponse = async (response) => {
         if (response.ok) {
             window.location.href = "/";
-            return;
+            return true;
         }
 
         if (response.status === 403) {
             const errorMessage = await response.json();
-            setMessage(errorMessage.message);
-            setHasError(true);
-
-            return;
+            showError(errorMessage.message);
+            return false;
         }
 
         if (response.status === 500) {
-            setMessage("Ocorreu um erro no servidor.");
-            setHasError(true);
+            showError("Ocorreu um erro no servidor.");
+            return false;
         }
+    }
+
+    const showError = (errorMessage) => {
+        setMessage(errorMessage);
+        setHasError(true);
     }
 
     return (
