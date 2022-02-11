@@ -49,13 +49,14 @@ export default function VerificationForm() {
                             autoFocus 
                             type='number' 
                             name='verificationCode'
+                            pattern='\d*'
                         />
 
                         {hasError && (
                             <span className={styles.error}>{ message }</span>
                         )}
                         
-                        <button type='submit'>Enviar</button>
+                        <button type='submit' className={styles.buttonSubmit}>Enviar</button>
                     </form>
                 </section>
             </div>

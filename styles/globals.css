@@ -90,3 +90,13 @@ button[type=submit] {
     color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
+@media (max-width: 480px) {
+    input[type=number] {
+        font-size: 1rem;
+    }
+
+    button[type=submit] {
+        font-size: 1rem;
+    }
+}
