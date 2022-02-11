@@ -92,11 +92,13 @@ button[type=submit] {
 }
 
 @media (max-width: 480px) {
-    input[type=number] {
+    input[type=number], button[type=submit] {
         font-size: 1rem;
     }
+}
 
-    button[type=submit] {
-        font-size: 1rem;
+@media (max-width: 480px) and (max-height: 843px) {
+    input[type=number], button[type=submit] {
+        font-size: .9rem;
     }
 }

@@ -32,7 +32,7 @@
 }
 
 .formContainer > form > label {
-    font-size: 14px;
+    font-size: .87rem;
     margin-bottom: 25px;
 }
 
@@ -66,5 +66,19 @@ button[type=submit].submitting {
 
     .verificationForm, .container {
         position: fixed;
+    }
+}
+
+@media (max-width: 480px) and (max-height: 843px) {
+    .verificationForm, .container {
+        position: fixed;
+    }
+
+    .formContainer > form > label {
+        font-size: .9rem;
+    }
+
+    .error {
+        font-size: .8rem;
     }
 }
