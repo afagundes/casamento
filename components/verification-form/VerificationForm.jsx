@@ -1,18 +1,41 @@
 import { useState } from 'react';
+import Spinner from '../spinner/spinner';
 import styles from './verificationForm.module.css'
 
 export default function VerificationForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState('');
     const [hasError, setHasError] = useState(false);
 
     const verifyCode = async (e) => {
         const verificationCode = e.target.verificationCode.value;
 
+        if (!validateInput(verificationCode))
+            return;
+
+        setIsSubmitting(true);
+
         const response = await fetch('/api/verify', {
             method: 'POST',
             body: verificationCode,
         });
 
+        validateResponse(response);
+        setIsSubmitting(false);
+    }
+
+    const validateInput = (value) => {
+        if (!value || value === "") {
+            setMessage("É necessário digitar o código para prosseguir.");
+            setHasError(true);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    const validateResponse = async (response) => {
         if (response.ok) {
             window.location.href = "/";
             return;
@@ -56,7 +79,13 @@ export default function VerificationForm() {
                             <span className={styles.error}>{ message }</span>
                         )}
                         
-                        <button type='submit' className={styles.buttonSubmit}>Enviar</button>
+                        <button 
+                            type='submit' 
+                            className={`${styles.buttonSubmit} ${isSubmitting ? styles.submitting : ""}` }
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? <Spinner /> : "Enviar"}
+                        </button>
                     </form>
                 </section>
             </div>

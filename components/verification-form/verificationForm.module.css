@@ -36,12 +36,17 @@
     margin-bottom: 25px;
 }
 
-.buttonSubmit {
+button[type=submit].buttonSubmit {
     transition: all .2s ease;
 }
 
-.buttonSubmit:active {
+button[type=submit].buttonSubmit:active {
     background-color: #2a2a2a;
+}
+
+button[type=submit].submitting {
+    width: 2.6rem;
+    border-radius: 50%;
 }
 
 .error {
