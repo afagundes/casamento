@@ -19,7 +19,8 @@ export default function VerificationForm() {
             body: verificationCode,
         });
 
-        if (!validateResponse(response)) setIsSubmitting(false);
+        const validated = await validateResponse(response);
+        if (!validated) setIsSubmitting(false);
     }
 
     const validateInput = (value) => {
@@ -40,13 +41,13 @@ export default function VerificationForm() {
         if (response.status === 403) {
             const errorMessage = await response.json();
             showError(errorMessage.message);
-            return false;
         }
 
         if (response.status === 500) {
             showError("Ocorreu um erro no servidor.");
-            return false;
         }
+
+        return false;
     }
 
     const showError = (errorMessage) => {
