@@ -2,6 +2,8 @@
     --section-padding: 80px;
     --section-padding-mobile: 80px 35px;
     --default-title-margin: 40px;
+    --default-border-radius: 6px;
+    --form-element-default-padding: 10px;
 
     --background-gray: #e9e9e9;
 }
