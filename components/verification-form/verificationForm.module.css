@@ -74,6 +74,10 @@ button[type=submit].submitting {
         position: fixed;
     }
 
+    .formContainer {
+        top: 0px;
+    }
+
     .formContainer > form > label {
         font-size: .9rem;
     }
