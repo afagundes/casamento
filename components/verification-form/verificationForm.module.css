@@ -75,7 +75,7 @@ button[type=submit].submitting {
     }
 
     .formContainer {
-        top: 0px;
+        top: -2rem;
     }
 
     .formContainer > form > label {
