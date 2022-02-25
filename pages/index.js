@@ -2,6 +2,7 @@ import Cookies from "cookies"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import Couple from "../components/couple/couple"
+import Gifts from "../components/gifts/gifts"
 import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
@@ -23,6 +24,8 @@ function Home({ verified }) {
         <>
           <Welcome />
           <Couple />
+          <Gifts />
+          <br /> {/* TODO aqui vai o componente de mensagens */}
           <Location />
           <TimeToWedding />
         </>

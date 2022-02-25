@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Couple = () => {
   return (
     <section className={styles.couple}>
-        <div className={styles.container}>
+        <div className={`${styles.couple__container} container`}>
           <h2>Olá!</h2>
 
           <div className={styles.message}>

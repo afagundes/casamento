@@ -6,7 +6,7 @@ export default function TimeToWedding() {
 
     return (
         <section className={styles.timeToWedding}>
-            <div className={styles.container}>
+            <div className={`${styles.container} white`}>
                 <h2>O Grande Dia<br />10 . Julho . 2022</h2>
 
                 <div className={styles.messageContainer}>

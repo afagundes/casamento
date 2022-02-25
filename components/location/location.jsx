@@ -2,7 +2,7 @@ import styles from './location.module.css'
 
 const Location = () => {
     return (
-        <section className={styles.location}>
+        <section className={`${styles.location} container_gray`}>
             <h2>Local</h2>
 
             <p><strong>Sítio São Jorge - Jardim Secreto</strong></p>

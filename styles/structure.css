@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: var(--section-padding);
+}
+
+.container_gray {
+    background-color: var(--background-gray);
+    color: #000;
+    width: 100%;
+    padding: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container_gray h2 {
+    color: #000;
+    margin-bottom: var(--default-title-margin);
+}
