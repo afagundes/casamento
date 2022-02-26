@@ -10,12 +10,6 @@
     margin-bottom: 3rem;
 }
 
-.message > p {
-    width: 100%;
-    text-align: center;
-    line-height: 2rem;
-}
-
 .photos {
     width: 100%;
     display: flex;

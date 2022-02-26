@@ -1,3 +1,7 @@
+.location > p {
+    line-height: 1.3rem;
+}
+
 .location iframe {
     margin-top: calc(var(--default-title-margin) + 20px);
     width: 70vw;
