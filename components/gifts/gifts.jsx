@@ -102,28 +102,30 @@ export default function Gifts() {
             <div className={styles.giftSort}>
                 Ordenar por preço:
                 
-                <span className={styles.priceFormGroup}>
-                    <input 
-                        type="radio" 
-                        name="priceSort" 
-                        id="lowPrice"
-                        value="1"
-                        checked={sortOrder === 1}
-                        onChange={changeOrder}
-                    />
-                    <label htmlFor="lowPrice">Mais baixo</label>
-                </span>
-                <span className={styles.priceFormGroup}>
-                    <input 
-                        type="radio" 
-                        name="priceSort"
-                        id="highPrice"
-                        value="2"
-                        checked={sortOrder === 2}
-                        onChange={changeOrder}
-                    />
-                    <label htmlFor="highPrice">Mais alto</label>
-                </span>
+                <form>
+                    <span className={styles.priceFormGroup}>
+                        <input 
+                            type="radio" 
+                            name="priceSort" 
+                            id="lowPrice"
+                            value="1"
+                            checked={sortOrder === 1}
+                            onChange={changeOrder}
+                        />
+                        <label htmlFor="lowPrice">Mais baixo</label>
+                    </span>
+                    <span className={styles.priceFormGroup}>
+                        <input 
+                            type="radio" 
+                            name="priceSort"
+                            id="highPrice"
+                            value="2"
+                            checked={sortOrder === 2}
+                            onChange={changeOrder}
+                        />
+                        <label htmlFor="highPrice">Mais alto</label>
+                    </span>
+                </form>
             </div>
 
             <div className={styles.giftGrid}>

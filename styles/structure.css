@@ -22,3 +22,10 @@
     color: #000;
     margin-bottom: var(--default-title-margin);
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container, .container_gray {
+        padding: var(--section-padding-mobile);
+    }
+}
