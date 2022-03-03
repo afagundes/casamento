@@ -82,7 +82,7 @@ export default function Gifts() {
         
         setSortedGiftList(tempSortedList);
 
-    },[sortOrder]);
+    },[sortOrder, sortFunctions, changeOrder]);
 
     return (
         <section className={`${styles.gifts} container_gray`}>
