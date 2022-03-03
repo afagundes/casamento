@@ -38,7 +38,7 @@ export default function Gifts() {
             <div className={styles.giftGrid}>
                 {giftList.map((gift, index) => (
 
-                    <article class={styles.giftCard} key={index}>
+                    <article className={styles.giftCard} key={index}>
                         <img alt={gift.description} src={gift.image} />
 
                         <div className={styles.giftInfo}>
