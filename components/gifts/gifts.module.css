@@ -27,7 +27,7 @@
     .giftSort {
         display: flex;
         flex-direction: column;
-        margin: 24pt 0 8pt;
+        margin: var(--default-title-margin) 0 8pt;
     }
 
     .giftSort > form {
