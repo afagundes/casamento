@@ -19,5 +19,5 @@ export default async function verify(req, res) {
 
 function setCookieVerified(req, res) {
     const cookies = new Cookies(req, res);
-    cookies.set('verified', 'true', { httpOnly: true });
+    cookies.set('verified', 'true', { httpOnly: true, sameSite: true });
 }
