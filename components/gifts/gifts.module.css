@@ -1,51 +1,23 @@
+.giftSort {
+    width: 100%;
+    max-width: 1024px;
+    margin-top: 60px;
+    margin-bottom: 16pt;    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: .9rem;
+}
+
+.priceFormGroup {
+    margin-left: 8pt;
+}
+
 .giftGrid {
     width: 100%;
     max-width: 1024px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220pt, 1fr));
     grid-gap: 16pt;
-    margin: 60px auto;
-}
-
-.giftCard {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-}
-
-.giftCard > img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.giftInfo {
-    width: 90%;
-    margin: 10px auto 20px;
-}
-
-.giftInfo > h4 {
-    font-weight: 500;
-    min-height: 43px;
-}
-
-.price {
-    font-size: 1.1rem;
-    margin: 16pt 0 8pt;
-}
-
-.currency {
-    margin-right: .3rem;
-    vertical-align: super;
-}
-
-.priceInt {
-    font-size: 200%;
-    font-weight: 700;
-}
-
-.priceDec {
-    font-weight: 700;
+    margin: 0 auto;
 }
