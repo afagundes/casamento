@@ -16,7 +16,7 @@ function Home({ verified }) {
     if (verified === false) {
       router.push('/verification');
     }
-  }, [router]);
+  }, [router, verified]);
 
   return (
     <Layout>
