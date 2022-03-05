@@ -1,6 +1,9 @@
+import { useRouter } from 'next/router';
 import styles from './giftCard.module.css';
 
 export default function GiftCard({ gift }) {
+    const router = useRouter();
+
     return (
         <article className={styles.giftCard}>
             <img alt={gift.description} src={gift.image} />
@@ -17,6 +20,7 @@ export default function GiftCard({ gift }) {
                 <button 
                     type='button' 
                     className={`${styles.buttonSubmit}` }
+                    onClick={() => router.push("/gift/[id]", `/gift/${gift.id}`)}
                 >
                     Presentear
                 </button>
