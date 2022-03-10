@@ -37,6 +37,7 @@ export default function GiftCart({ gift, qrCode }) {
                                 layout="fixed" 
                                 width={200} 
                                 height={200}
+                                alt="qr code"
                             />
                         </div>
                     </article>
