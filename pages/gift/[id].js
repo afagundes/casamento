@@ -13,7 +13,7 @@ export default function Gift({ gift, qrCode }) {
 
 export async function getServerSideProps(ctx) {
     const giftId = ctx.params.id;
-    const gift = giftList.find(gift => gift.id == giftId);
+    const gift = findGifyById(giftId);
     const qrCode = await generateQrCodeFromGiftPrice(gift);
 
     return {
@@ -22,6 +22,10 @@ export async function getServerSideProps(ctx) {
             qrCode: qrCode
         }
     }
+}
+
+function findGifyById(giftId) {
+    return giftList.find(gift => gift.id == giftId);
 }
 
 async function generateQrCodeFromGiftPrice(gift) {
