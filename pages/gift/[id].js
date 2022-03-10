@@ -1,8 +1,37 @@
-import { useRouter } from "next/router";
+import { PIX } from 'gpix/dist';
+import { giftList } from '../../lib/gifts';
+import Layout from "../../components/layout/layout";
+import GiftCart from "../../components/gift-cart/giftCart";
 
-export default function GiftCheckout() {
-    const router = useRouter();
-    const { id } = router.query;
+export default function Gift({ gift, qrCode }) {
+    return (
+        <Layout>
+            {gift ? <GiftCart gift={gift} qrCode={qrCode} /> : null }
+        </Layout>
+    );
+}
 
-    return <div>Seja bem-vindo à página de número {id}</div>
+export async function getServerSideProps(ctx) {
+    const giftId = ctx.params.id;
+    const gift = giftList.find(gift => gift.id == giftId);
+    const qrCode = await generateQrCodeFromGiftPrice(gift);
+
+    return {
+        props: { 
+            gift: gift,
+            qrCode: qrCode
+        }
+    }
+}
+
+async function generateQrCodeFromGiftPrice(gift) {
+    const pix = PIX.static()
+        .setReceiverName(process.env.PIX_RECEIVER_NAME)
+        .setReceiverCity(process.env.PIX_RECEIVER_CITY)
+        .setKey(process.env.PIX_KEY)
+        .setDescription('Presente de Casamento')
+        .setAmount(gift.price);
+
+    const qrCode = await pix.getQRCode();
+    return qrCode;
 }

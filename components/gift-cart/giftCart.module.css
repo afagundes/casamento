@@ -1,0 +1,107 @@
+.containerGift {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.containerGift h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.containerGift h4 {
+    line-height: 2;
+    text-align: left;
+    margin-bottom: 8pt;
+    padding-top: 8pt;
+    border-top: 1px solid #bababa;
+}
+
+.containerGift article {
+    margin-top: 16pt;
+    text-align: left;
+}
+
+.cart {
+    padding: 16pt 32px;
+    max-width: 594px;
+    background-color: white;
+    border-radius: var(--default-border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.cartDetailsGift {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cartDetailsGift > img {
+    width: 200px;
+    border-radius: var(--default-border-radius);
+    margin-right: 16pt;
+}
+
+.price {
+    margin-top: 8pt;
+}
+
+.pixKey, .bankAccount {
+    margin: 16pt 0;
+    font-weight: bold;
+    background-color: var(--background-gray);
+    padding: 8pt;
+    border-radius: var(--default-border-radius);
+    text-align: center;
+}
+
+.qrCode {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.bankAccount {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.bankAccount > span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.paymentOption {
+    padding-bottom: 16pt;
+}
+
+@media (max-width: 480px) {
+    .containerGift h4 {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .containerGift article {
+        text-align: center;
+    }
+
+    .cartDetailsGift {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartDetailsGift > img {
+        margin: 0 0 16pt 0;
+        width: 250px;
+    }
+
+    .cardDetailsGiftInfo {
+        margin: 0;
+    }
+
+    .cardDetailsGiftInfo > p {
+        margin-top: 8pt;
+    }
+}

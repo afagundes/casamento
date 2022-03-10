@@ -6,7 +6,6 @@ import Gifts from "../components/gifts/gifts"
 import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
-
 import Welcome from "../components/welcome/welcome"
 
 function Home({ verified }) {
@@ -34,12 +33,14 @@ function Home({ verified }) {
   )
 }
 
-Home.getInitialProps = async (ctx) => {
+export async function getServerSideProps(ctx) {
   const cookies = new Cookies(ctx.req, ctx.res);
   const verified = cookies.get('verified') === 'true' || false;
 
   return {
-    verified: verified
+    props: {
+      verified: verified
+    }
   }
 }
 
