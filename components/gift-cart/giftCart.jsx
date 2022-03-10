@@ -11,7 +11,7 @@ export default function GiftCart({ gift, qrCode }) {
                 <p>Muito obrigado por ter escolhido um presente para nós 😀</p>
 
                 <article className={styles.cartDetails}>
-                    <h4>Detalhes</h4>
+                    <h4>Presente</h4>
 
                     <article className={styles.cartDetailsGift}>
                         <img src={gift.image} alt={gift.description} />
@@ -48,17 +48,19 @@ export default function GiftCart({ gift, qrCode }) {
                         
                         <div className={styles.bankAccount}>
                             <span>Archimedes Fagundes Junior</span>
-                            <strong>Nubank</strong><br />
-                            <strong>Ag</strong> 0001<br />
-                            <strong>Conta</strong> 1196862-4<br />
-                            <strong>CPF</strong> 346.568.078-26<br />
+                            Nubank<br />
+                            Ag 0001<br />
+                            Conta 1196862-4<br />
+                            CPF 346.568.078-26<br />
                         </div>
                     </article>
 
                     <Link href="/">
-                        <button type="button">
-                            Voltar
-                        </button>
+                        <a>
+                            <button type="button">
+                                Voltar
+                            </button>
+                        </a>
                     </Link>
                 </article>
             </div>

@@ -17,9 +17,11 @@ export default function GiftCard({ gift, showSubmitButton }) {
 
                 {showSubmitButton && (
                     <Link href={`/gift/${gift.id}`}>
-                        <button type='button' className={`${styles.buttonSubmit}`}>
-                            Presentear
-                        </button>
+                        <a>
+                            <button type='button' className={`${styles.buttonSubmit}`}>
+                                Presentear
+                            </button>
+                        </a>
                     </Link>
                 )}
             </div>
