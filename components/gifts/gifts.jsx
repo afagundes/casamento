@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
 import { giftList } from '../../lib/gifts';
 import GiftCard from './gift-card/giftCard';
 import styles from './gifts.module.css';
@@ -9,6 +10,9 @@ const sortFunctions = {
 };
 
 export default function Gifts() {
+    const router = useRouter();
+    const scrollRef = useRef();
+    const [hasScrolled, setHasScrolled] = useState(false);
     const [sortOrder, setSortOrder] = useState(1);
     const [sortedGiftList, setSortedGiftList] = useState([]);
 
@@ -16,14 +20,28 @@ export default function Gifts() {
         setSortOrder(Number.parseInt(event.target.value));
     }
 
-    useEffect(() => {
+    const sortGiftList = () => {
         const sortFunction = (sortOrder === 1) ? sortFunctions["sortAsc"] : sortFunctions["sortDesc"];
 
         const tempSortedList = [ ...giftList ];
         tempSortedList.sort(sortFunction);
         
         setSortedGiftList(tempSortedList);
+    }
 
+    const scrollToGiftList = () => {
+        if (router.asPath.includes('gift-list') && !hasScrolled) {
+            // Remove o #gift-list da url
+            //window.history.pushState("", "", router.pathname);
+
+            scrollRef.current.scrollIntoView();
+            setHasScrolled(true);
+        }
+    }
+
+    useEffect(() => {
+        sortGiftList();
+        scrollToGiftList();
     },[sortOrder]);
 
     return (
@@ -41,7 +59,7 @@ export default function Gifts() {
                 <p>(Claro, essa lista é apenas para se divertirem. Fiquem à vontade para escolherem os valores.)</p>
             </article>
 
-            <div className={styles.giftSort}>
+            <div className={styles.giftSort} ref={scrollRef}>
                 Ordenar por preço:
                 
                 <form>

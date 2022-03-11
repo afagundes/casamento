@@ -56,7 +56,7 @@ export default function GiftCart({ gift, qrCode }) {
                         </div>
                     </article>
 
-                    <Link href="/">
+                    <Link href="/#gift-list">
                         <a>
                             <button type="button">
                                 Voltar
