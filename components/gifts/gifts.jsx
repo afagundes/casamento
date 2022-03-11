@@ -57,7 +57,7 @@ export default function Gifts({ paymentInfo }) {
                     presenteados com momentos.
                 </p>
                 <p>Optamos por pagamento PIX por ser mais simples, mas fiquem à vontade para nos dar dinheiro de qualquer outra forma 😀</p>
-                <p>(Claro, essa lista é apenas para se divertirem. Caso queiram nos presentear, fiquem à vontade para escolherem os valores.)</p>
+                <p>(Claro, essa lista é apenas para se divertirem. Caso queiram nos presentear, fiquem à vontade para escolher os valores.)</p>
             </article>
 
             <div className={styles.giftSort} ref={scrollRef}>
