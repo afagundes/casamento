@@ -1,0 +1,10 @@
+.bankInfo {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.bankInfo > span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

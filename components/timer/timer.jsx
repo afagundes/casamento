@@ -49,7 +49,7 @@ const Timer = ({ eventDate }) => {
     useEffect(() => {
         execTimer();
         return () => clearInterval(intervalTimer);
-    }, []);
+    }, [execTimer, intervalTimer]);
 
     return (
         <div className={styles.timer}>

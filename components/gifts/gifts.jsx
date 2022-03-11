@@ -43,7 +43,7 @@ export default function Gifts() {
     useEffect(() => {
         sortGiftList();
         scrollToGiftList();
-    },[sortOrder]);
+    },[sortOrder, sortGiftList, scrollToGiftList]);
 
     return (
         <section className={`${styles.gifts} container_gray`}>
