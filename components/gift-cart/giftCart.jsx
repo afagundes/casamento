@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './giftCart.module.css';
 import BankInfo from '../bank-info/bankInfo';
 
-export default function GiftCart({ gift, qrCode }) {
+export default function GiftCart({ gift, qrCode, paymentInfo }) {
     return (
         <section className={`${styles.containerGift} container_gray container_less_padding`}>
             <div className={styles.cart}>
@@ -31,7 +31,7 @@ export default function GiftCart({ gift, qrCode }) {
 
                         Escaneie o QR Code com seu app de pagamento ou use a seguinte chave PIX (celular):
                         
-                        <div className={styles.pixKey}>(11) 95844-3397</div>
+                        <div className={styles.pixKey}>{paymentInfo.pix}</div>
 
                         <div className={styles.qrCode}>
                             <Image src={qrCode} 
@@ -49,7 +49,7 @@ export default function GiftCart({ gift, qrCode }) {
                         Caso você prefira outra opção, também é possível fazer uma transferência para a seguinte conta: 
                         
                         <div className={styles.bankInfo}>
-                            <BankInfo />
+                            <BankInfo info={paymentInfo} />
                         </div>
                     </article>
 

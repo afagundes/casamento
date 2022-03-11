@@ -10,7 +10,7 @@ const sortFunctions = {
     "sortDesc": (item1, item2) => (item1.price < item2.price) ? 1 : (item1.price == item2.price) ? ((item1.description > item2.description) ? 1 : -1) : -1
 };
 
-export default function Gifts() {
+export default function Gifts({ paymentInfo }) {
     const router = useRouter();
     const scrollRef = useRef();
     const [hasScrolled, setHasScrolled] = useState(false);
@@ -95,11 +95,11 @@ export default function Gifts() {
 
             <div className={styles.paymentInfo}>
                 <p>Caso queiram nos presentear com outro valor que não esteja na lista, esses são nossos dados:</p>
-                <p className={styles.pixKey}>Chave PIX (celular): (11) 95844-3397</p>
+                <p className={styles.pixKey}>Chave PIX (celular): {paymentInfo.pix}</p>
                 
                 <div className={styles.bankAccount}>
                     <p>Conta Corrente:</p>
-                    <BankInfo />
+                    <BankInfo info={paymentInfo} />
                 </div>
             </div>
 

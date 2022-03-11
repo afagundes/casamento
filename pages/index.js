@@ -6,9 +6,10 @@ import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
 import Welcome from "../components/welcome/welcome"
+import { getPaymentInfo } from "../lib/paymentInfo"
 import { getSessionCookieState } from "../lib/sessionCookie"
 
-function Home({ verified }) {
+function Home({ verified, paymentInfo }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -23,7 +24,7 @@ function Home({ verified }) {
         <>
           <Welcome />
           <Couple />
-          <Gifts />
+          <Gifts paymentInfo={paymentInfo} />
           <br /> {/* TODO aqui vai o componente de mensagens */}
           <Location />
           <TimeToWedding />
@@ -35,10 +36,12 @@ function Home({ verified }) {
 
 export async function getServerSideProps(ctx) {
   const cookieVerified = getSessionCookieState(ctx);
+  const paymentInfo = getPaymentInfo();
 
   return {
     props: {
-      ...cookieVerified
+      ...cookieVerified,
+      ...paymentInfo
     }
   }
 }

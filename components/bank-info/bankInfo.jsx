@@ -1,14 +1,14 @@
 import styles from './bankInfo.module.css';
 
-export default function BankInfo() {
-    return (
+export default function BankInfo({ info }) {
+    return info ? (
         <div className={styles.bankInfo}>
-            <span>Archimedes Fagundes Junior</span>
+            <span>{info.bankReceiverName}</span>
 
-            <strong>Nubank</strong><br />
-            Ag 0001<br />
-            Conta 1196862-4<br />
-            CPF 346.568.078-26<br />
+            <strong>{info.bankName}</strong><br />
+            Ag {info.bankAgency}<br />
+            Conta {info.bankAccount}<br />
+            CPF {info.bankReceiverDocument}<br />
         </div>
-    );
+    ) : null;
 }

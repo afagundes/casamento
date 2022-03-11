@@ -5,8 +5,9 @@ import GiftCart from "../../components/gift-cart/giftCart";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { getSessionCookieState } from '../../lib/sessionCookie';
+import { getPaymentInfo } from '../../lib/paymentInfo';
 
-export default function Gift({ verified, gift, qrCode }) {
+export default function Gift({ verified, gift, qrCode, paymentInfo }) {
     const router = useRouter();
 
     useEffect(() => {
@@ -17,7 +18,7 @@ export default function Gift({ verified, gift, qrCode }) {
 
     return (
         <Layout>
-            {verified && gift ? <GiftCart gift={gift} qrCode={qrCode} /> : null }
+            {verified && gift ? <GiftCart gift={gift} qrCode={qrCode} paymentInfo={paymentInfo} /> : null }
         </Layout>
     );
 }
@@ -36,12 +37,14 @@ export async function getServerSideProps(ctx) {
     const giftId = ctx.params.id;
     const gift = findGifyById(giftId);
     const qrCode = await generateQrCodeFromGiftPrice(gift);
+    const paymentInfo = getPaymentInfo();
 
     return {
         props: { 
             gift: gift,
             qrCode: qrCode,
             verified: true,
+            ...paymentInfo
         }
     }
 }
