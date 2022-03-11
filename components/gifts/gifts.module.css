@@ -1,7 +1,7 @@
 .giftSort {
     width: 100%;
     max-width: 1024px;
-    margin-top: 60px;
+    margin-top: 48pt;
     margin-bottom: 16pt;    
     display: flex;
     align-items: center;
@@ -20,6 +20,15 @@
     grid-template-columns: repeat(auto-fill, minmax(220pt, 1fr));
     grid-gap: 16pt;
     margin: 0 auto;
+}
+
+.paymentInfo {
+    margin-top: 48pt;
+}
+
+.pixKey {
+    font-weight: bold;
+    margin: 4pt 0;
 }
 
 /* Mobile */

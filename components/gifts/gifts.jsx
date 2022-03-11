@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { giftList } from '../../lib/gifts';
+import BankInfo from '../bank-info/bankInfo';
 import GiftCard from './gift-card/giftCard';
 import styles from './gifts.module.css';
 
@@ -32,7 +33,7 @@ export default function Gifts() {
     const scrollToGiftList = () => {
         if (router.asPath.includes('gift-list') && !hasScrolled) {
             // Remove o #gift-list da url
-            //window.history.pushState("", "", router.pathname);
+            window.history.pushState("", "", router.pathname);
 
             scrollRef.current.scrollIntoView();
             setHasScrolled(true);
@@ -56,7 +57,7 @@ export default function Gifts() {
                     presenteados com momentos.
                 </p>
                 <p>Optamos por pagamento PIX por ser mais simples, mas fiquem à vontade para nos dar dinheiro de qualquer outra forma 😀</p>
-                <p>(Claro, essa lista é apenas para se divertirem. Fiquem à vontade para escolherem os valores.)</p>
+                <p>(Claro, essa lista é apenas para se divertirem. Caso queiram nos presentear, fiquem à vontade para escolherem os valores.)</p>
             </article>
 
             <div className={styles.giftSort} ref={scrollRef}>
@@ -92,7 +93,15 @@ export default function Gifts() {
                 { sortedGiftList.map((gift, index) => <GiftCard key={index} gift={gift} showSubmitButton />) }
             </div>
 
-            { /*<p>Informação do PIX</p> */ }
+            <div className={styles.paymentInfo}>
+                <p>Caso queiram nos presentear com outro valor que não esteja na lista, esses são nossos dados:</p>
+                <p className={styles.pixKey}>Chave PIX (celular): (11) 95844-3397</p>
+                
+                <div className={styles.bankAccount}>
+                    <p>Conta Corrente:</p>
+                    <BankInfo />
+                </div>
+            </div>
 
         </section>
     );

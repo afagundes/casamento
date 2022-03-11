@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './giftCart.module.css';
+import BankInfo from '../bank-info/bankInfo';
 
 export default function GiftCart({ gift, qrCode }) {
     return (
@@ -47,12 +48,8 @@ export default function GiftCart({ gift, qrCode }) {
                         
                         Caso você prefira outra opção, também é possível fazer uma transferência para a seguinte conta: 
                         
-                        <div className={styles.bankAccount}>
-                            <span>Archimedes Fagundes Junior</span>
-                            Nubank<br />
-                            Ag 0001<br />
-                            Conta 1196862-4<br />
-                            CPF 346.568.078-26<br />
+                        <div className={styles.bankInfo}>
+                            <BankInfo />
                         </div>
                     </article>
 
