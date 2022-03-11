@@ -21,29 +21,29 @@ export default function Gifts() {
         setSortOrder(Number.parseInt(event.target.value));
     }
 
-    const sortGiftList = () => {
-        const sortFunction = (sortOrder === 1) ? sortFunctions["sortAsc"] : sortFunctions["sortDesc"];
-
-        const tempSortedList = [ ...giftList ];
-        tempSortedList.sort(sortFunction);
-        
-        setSortedGiftList(tempSortedList);
-    }
-
-    const scrollToGiftList = () => {
-        if (router.asPath.includes('gift-list') && !hasScrolled) {
-            // Remove o #gift-list da url
-            window.history.pushState("", "", router.pathname);
-
-            scrollRef.current.scrollIntoView();
-            setHasScrolled(true);
-        }
-    }
-
     useEffect(() => {
+        const sortGiftList = () => {
+            const sortFunction = (sortOrder === 1) ? sortFunctions["sortAsc"] : sortFunctions["sortDesc"];
+    
+            const tempSortedList = [ ...giftList ];
+            tempSortedList.sort(sortFunction);
+            
+            setSortedGiftList(tempSortedList);
+        }
+    
+        const scrollToGiftList = () => {
+            if (router.asPath.includes('gift-list') && !hasScrolled) {
+                // Remove o #gift-list da url
+                window.history.pushState("", "", router.pathname);
+    
+                scrollRef.current.scrollIntoView();
+                setHasScrolled(true);
+            }
+        }
+
         sortGiftList();
         scrollToGiftList();
-    },[sortOrder, sortGiftList, scrollToGiftList]);
+    },[sortOrder, hasScrolled, router.asPath, router.pathname]);
 
     return (
         <section className={`${styles.gifts} container_gray`}>

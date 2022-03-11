@@ -9,47 +9,47 @@ const Timer = ({ eventDate }) => {
     const [minutes, setMinutes] = useState(zero);
     const [seconds, setSeconds] = useState(zero);
 
-    let intervalTimer;
+    useEffect(() => {
+        let intervalTimer;
 
-    const execTimer = () => {
-        const interval = 1000;
-
-        const calcTime = () => {
-            const now = new Date();
-            const eventTime = new Date(2022, 6, 10, 15, 0, 0, 0);
-
-            const diff = eventTime.getTime() - now.getTime();
-
-            if (diff <= 0) {
-                setDays(zero);
-                setHours(zero);
-                setMinutes(zero);
-                setSeconds(zero);
-
-                clearInterval(intervalTimer)
-
-                return;
+        const execTimer = () => {
+            const interval = 1000;
+    
+            const calcTime = () => {
+                const now = new Date();
+                const eventTime = new Date(2022, 6, 10, 15, 0, 0, 0);
+    
+                const diff = eventTime.getTime() - now.getTime();
+    
+                if (diff <= 0) {
+                    setDays(zero);
+                    setHours(zero);
+                    setMinutes(zero);
+                    setSeconds(zero);
+    
+                    clearInterval(intervalTimer)
+    
+                    return;
+                }
+    
+                const diffDays = parseInt(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                const diffHours = parseInt(diff / (1000 * 60 * 60) % 24).toString().padStart(2, '0');
+                const diffMinutes = parseInt(diff / (1000 * 60) % 60).toString().padStart(2, '0');
+                const diffSeconds = parseInt(diff / 1000 % 60).toString().padStart(2, '0');
+    
+                setDays(diffDays);
+                setHours(diffHours);
+                setMinutes(diffMinutes);
+                setSeconds(diffSeconds);
             }
-
-            const diffDays = parseInt(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            const diffHours = parseInt(diff / (1000 * 60 * 60) % 24).toString().padStart(2, '0');
-            const diffMinutes = parseInt(diff / (1000 * 60) % 60).toString().padStart(2, '0');
-            const diffSeconds = parseInt(diff / 1000 % 60).toString().padStart(2, '0');
-
-            setDays(diffDays);
-            setHours(diffHours);
-            setMinutes(diffMinutes);
-            setSeconds(diffSeconds);
+    
+            calcTime();
+            intervalTimer = setInterval(() => calcTime(), interval)
         }
 
-        calcTime();
-        intervalTimer = setInterval(() => calcTime(), interval)
-    }
-
-    useEffect(() => {
         execTimer();
         return () => clearInterval(intervalTimer);
-    }, [execTimer, intervalTimer]);
+    }, []);
 
     return (
         <div className={styles.timer}>
