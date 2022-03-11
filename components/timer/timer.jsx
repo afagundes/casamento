@@ -9,9 +9,10 @@ const Timer = ({ eventDate }) => {
     const [minutes, setMinutes] = useState(zero);
     const [seconds, setSeconds] = useState(zero);
 
+    let intervalTimer;
+
     const execTimer = () => {
         const interval = 1000;
-        let intervalTimer;
 
         const calcTime = () => {
             const now = new Date();
@@ -45,7 +46,10 @@ const Timer = ({ eventDate }) => {
         intervalTimer = setInterval(() => calcTime(), interval)
     }
 
-    useEffect(() => execTimer(), []);
+    useEffect(() => {
+        execTimer();
+        return () => clearInterval(intervalTimer);
+    }, []);
 
     return (
         <div className={styles.timer}>
