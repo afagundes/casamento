@@ -1,4 +1,4 @@
-import Cookies from "cookies";
+import { setCookieVerified } from "../../lib/sessionCookie";
 
 export default async function verify(req, res) {
     if (req.method !== 'POST') {
@@ -15,9 +15,4 @@ export default async function verify(req, res) {
     else {
         res.status(403).json({ message: 'O código informado é inválido.' });
     }
-}
-
-function setCookieVerified(req, res) {
-    const cookies = new Cookies(req, res);
-    cookies.set('verified', 'true', { httpOnly: true, sameSite: true });
 }

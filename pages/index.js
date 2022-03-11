@@ -1,4 +1,3 @@
-import Cookies from "cookies"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import Couple from "../components/couple/couple"
@@ -7,6 +6,7 @@ import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
 import Welcome from "../components/welcome/welcome"
+import { getSessionCookieState } from "../lib/sessionCookie"
 
 function Home({ verified }) {
   const router = useRouter();
@@ -34,12 +34,11 @@ function Home({ verified }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const cookies = new Cookies(ctx.req, ctx.res);
-  const verified = cookies.get('verified') === 'true' || false;
+  const cookieVerified = getSessionCookieState(ctx);
 
   return {
     props: {
-      verified: verified
+      ...cookieVerified
     }
   }
 }

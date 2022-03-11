@@ -2,16 +2,37 @@ import { PIX } from 'gpix/dist';
 import { giftList } from '../../lib/gifts';
 import Layout from "../../components/layout/layout";
 import GiftCart from "../../components/gift-cart/giftCart";
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { getSessionCookieState } from '../../lib/sessionCookie';
 
-export default function Gift({ gift, qrCode }) {
+export default function Gift({ verified, gift, qrCode }) {
+    const router = useRouter();
+
+    useEffect(() => {
+      if (verified === false) {
+        router.push('/verification');
+      }
+    }, [router, verified]);
+
     return (
         <Layout>
-            {gift ? <GiftCart gift={gift} qrCode={qrCode} /> : null }
+            {verified && gift ? <GiftCart gift={gift} qrCode={qrCode} /> : null }
         </Layout>
     );
 }
 
 export async function getServerSideProps(ctx) {
+    const cookie = getSessionCookieState(ctx);
+
+    if (cookie.verified === false) {
+        return {
+            props: {
+                verified: false
+            }
+        }
+    }
+
     const giftId = ctx.params.id;
     const gift = findGifyById(giftId);
     const qrCode = await generateQrCodeFromGiftPrice(gift);
@@ -19,7 +40,8 @@ export async function getServerSideProps(ctx) {
     return {
         props: { 
             gift: gift,
-            qrCode: qrCode
+            qrCode: qrCode,
+            verified: true,
         }
     }
 }
