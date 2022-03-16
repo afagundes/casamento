@@ -1,0 +1,63 @@
+.message {
+    width: 100%;
+}
+
+.message h2 {
+    margin-bottom: 3rem;
+}
+
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.formContainer > form, .formImage {
+    min-width: 270px;
+    width: 555px;
+    height: 450px;
+}
+
+.formContainer > form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-gray);
+    padding: 2rem;
+}
+
+.formContainer > form label:last-of-type {
+    margin-top: 1rem;
+}
+
+.formImage {
+    background: url("/images/message_background_2.jpg") no-repeat;
+    background-size: cover;
+}
+
+/* Mobile */
+@media (max-width: 1160px) {
+    .message > div {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .formContainer { 
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .formContainer > form, .formImage {
+        width: 100%;
+    }
+
+    .formContainer > form {
+        padding: 1.5rem;
+    }
+
+    .formImage {
+        background-position: center;
+    }
+
+}

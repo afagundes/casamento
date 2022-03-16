@@ -4,6 +4,7 @@ import Couple from "../components/couple/couple"
 import Gifts from "../components/gifts/gifts"
 import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
+import Message from "../components/message/message"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
 import Welcome from "../components/welcome/welcome"
 import { getPaymentInfo } from "../lib/paymentInfo"
@@ -25,7 +26,7 @@ function Home({ verified, paymentInfo }) {
           <Welcome />
           <Couple />
           <Gifts paymentInfo={paymentInfo} />
-          <br /> {/* TODO aqui vai o componente de mensagens */}
+          <Message />
           <Location />
           <TimeToWedding />
         </>
