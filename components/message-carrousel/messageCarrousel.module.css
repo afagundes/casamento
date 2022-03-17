@@ -1,0 +1,50 @@
+.containerCarrousel {
+    width: fit-content;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: calc(var(--section-padding) / 2);
+}
+
+.carrousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transform: translateX(0);
+    transition: 0.3s all ease-out;
+    -o-transition: 0.3s all ease-out;
+    -moz-transition: 0.3s all ease-out;
+    -webkit-transition: 0.3s all ease-out;
+}
+
+.carrouselItem {
+    width: calc(100vw - 20px);
+}
+
+.carrouselController {
+    background-color: var(--background-gray);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8pt;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: var(--section-padding);
+}
+
+.carrouselButton {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    background-color: white;
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+}
+
+.carrouselButtonActive {
+    border: 5px solid black;
+}

@@ -4,6 +4,7 @@ import Couple from "../components/couple/couple"
 import Gifts from "../components/gifts/gifts"
 import Layout from "../components/layout/layout"
 import Location from "../components/location/location"
+import MessageCarrousel from "../components/message-carrousel/messageCarrousel"
 import Message from "../components/message/message"
 import TimeToWedding from "../components/time-to-wedding/timeToWedding"
 import Welcome from "../components/welcome/welcome"
@@ -27,6 +28,8 @@ function Home({ verified, paymentInfo }) {
           <Couple />
           <Gifts paymentInfo={paymentInfo} />
           <Message />
+          <MessageCarrousel />
+          <br /> {/* Aqui vai o componente de info de vestimentas */}
           <Location />
           <TimeToWedding />
         </>
