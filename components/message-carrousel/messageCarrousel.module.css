@@ -1,8 +1,10 @@
 .containerCarrousel {
     width: fit-content;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: calc(var(--section-padding) / 2);
+    padding: calc(var(--section-padding) / 2) 0;
+}
+
+.containerCarrousel h3 {
+    font-size: 1.1rem;
 }
 
 .carrousel {
@@ -18,7 +20,23 @@
 }
 
 .carrouselItem {
-    width: calc(100vw - 20px);
+    width: calc(100vw - var(--scrollbar-width));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    max-width: 800px;
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+}
+
+.message > p {
+    margin-top: calc(var(--section-padding) / 3);
+    color: #6b6b6b;
 }
 
 .carrouselController {
@@ -30,7 +48,7 @@
     gap: 8pt;
     width: 100%;
     height: fit-content;
-    padding-bottom: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) / 2);
 }
 
 .carrouselButton {
@@ -47,4 +65,11 @@
 
 .carrouselButtonActive {
     border: 5px solid black;
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+    .message {
+        max-width: 300px;
+    }
 }

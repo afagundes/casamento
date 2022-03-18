@@ -5,7 +5,7 @@ const messages = [
     {
         id: 1,
         name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
     },
     {
         id: 2,
@@ -29,7 +29,7 @@ export default function MessageCarrousel() {
     const [activeMessage, setActiveMessage] = useState(0);
 
     useEffect(() => {
-        carrouselRef.current.style.transform = `translateX(calc((100vw - 20px) * -${activeMessage}))`;
+        carrouselRef.current.style.transform = `translateX(calc((100vw - var(--scrollbar-width)) * -${activeMessage}))`;
     }, [activeMessage]);
 
     return (
