@@ -44,7 +44,7 @@ export default function MessageCarrousel() {
                             <div className={styles.carrouselItem} key={index}>
                                 <article className={styles.message}>
                                     <h3>{message.name}</h3>
-                                    <p>"{message.message}"</p>
+                                    <p>&quot;{message.message}&quot;</p>
                                 </article>
                             </div>    
                         ))}
