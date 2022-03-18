@@ -63,8 +63,13 @@
     transition: 0.2s all linear;
 }
 
+.carrouselButton:hover {
+    border: 5px solid #999;
+}
+
 .carrouselButtonActive {
-    border: 5px solid black;
+    border: 5px solid black !important;
+    cursor: default;
 }
 
 /* Mobile */
