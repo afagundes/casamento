@@ -24,7 +24,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .message {
@@ -33,11 +32,28 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: var(--card-shadow);
+    position: relative;
 }
 
 .message > p {
     margin-top: calc(var(--section-padding) / 3);
     color: #6b6b6b;
+}
+
+.swipeButton {
+    background-color: transparent;
+    width: 150px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.swipeLeft {
+    left: 0;
+}
+
+.swipeRight {
+    right: 0;
 }
 
 .carrouselController {

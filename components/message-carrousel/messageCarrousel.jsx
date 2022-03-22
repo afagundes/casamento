@@ -29,7 +29,7 @@ export default function MessageCarrousel() {
     const [activeMessage, setActiveMessage] = useState(0);
 
     useEffect(() => {
-        const period = 20000;
+        const period = 60000;
         const interval = setInterval(() => {
             setActiveMessage(activeMessage => activeMessage + 1 === messages.length ? 0 : activeMessage + 1);
         }, period);
@@ -46,6 +46,20 @@ export default function MessageCarrousel() {
         showActiveMessage();
     }, [activeMessage]);
 
+    const swipeRight = () => {
+        if (activeMessage + 1 === messages.length)
+            return;
+
+        setActiveMessage(activeMessage => activeMessage + 1);
+    }
+
+    const swipeLeft = () => {
+        if (activeMessage === 0)
+            return;
+
+        setActiveMessage(activeMessage => activeMessage - 1);
+    }
+
     return (
         <>
             <section className={styles.messageCarrousel}>
@@ -59,6 +73,15 @@ export default function MessageCarrousel() {
                                 <article className={styles.message}>
                                     <h3>{message.name}</h3>
                                     <p>&quot;{message.message}&quot;</p>
+
+                                    <div 
+                                        className={`${styles.swipeButton} ${styles.swipeLeft}`}
+                                        onClick={() => swipeLeft()}
+                                    ></div>
+                                    <div 
+                                        className={`${styles.swipeButton} ${styles.swipeRight}`}
+                                        onClick={() => swipeRight()}
+                                    ></div>
                                 </article>
                             </div>    
                         ))}
