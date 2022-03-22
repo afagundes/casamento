@@ -29,19 +29,33 @@ export default function MessageCarrousel() {
     const [activeMessage, setActiveMessage] = useState(0);
 
     useEffect(() => {
-        carrouselRef.current.style.transform = `translateX(calc((100vw - var(--scrollbar-width)) * -${activeMessage}))`;
+        const period = 20000;
+        const interval = setInterval(() => {
+            setActiveMessage(activeMessage => activeMessage + 1 === messages.length ? 0 : activeMessage + 1);
+        }, period);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
+
+    useEffect(() => {
+        const showActiveMessage = () => {
+            carrouselRef.current.style.transform = `translateX(calc((100vw - var(--scrollbar-width)) * -${activeMessage}))`;
+        }
+        showActiveMessage();
     }, [activeMessage]);
 
     return (
         <>
             <section className={styles.messageCarrousel}>
                 <div className={`container_gray ${styles.containerCarrousel}`}>
-                    <div 
-                        className={styles.carrousel}
-                        ref={carrouselRef}
-                    >
+                    <div className={styles.carrousel} ref={carrouselRef}>
                         {messages.map((message, index) => (
-                            <div className={styles.carrouselItem} key={index}>
+                            <div 
+                                key={index}
+                                className={styles.carrouselItem}
+                            >
                                 <article className={styles.message}>
                                     <h3>{message.name}</h3>
                                     <p>&quot;{message.message}&quot;</p>
