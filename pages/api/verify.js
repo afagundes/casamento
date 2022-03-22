@@ -2,7 +2,8 @@ import { setCookieVerified } from "../../lib/sessionCookie";
 
 export default async function verify(req, res) {
     if (req.method !== 'POST') {
-        res.status(405).json({ message: 'Método não permitido' });
+        res.setHeader('Allow', ['POST']);
+        res.status(405).end(`Method ${method} Not Allowed`);
     }
 
     const code = process.env.VERIFICATION_CODE;
@@ -10,9 +11,9 @@ export default async function verify(req, res) {
 
     if (code === userCode) {
         setCookieVerified(req, res);
-        res.status(200).json({ message: 'Código validado' });
+        res.status(200).end();
     }
     else {
-        res.status(403).json({ message: 'O código informado é inválido.' });
+        res.status(403).end();
     }
 }

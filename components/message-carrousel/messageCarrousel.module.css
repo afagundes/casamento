@@ -62,9 +62,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8pt;
     width: 100%;
     height: fit-content;
+    padding: 0 calc(var(--section-padding) / 2);
     padding-bottom: calc(var(--section-padding) / 2);
 }
 

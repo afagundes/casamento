@@ -36,24 +36,6 @@
     margin-bottom: 25px;
 }
 
-button[type=submit].buttonSubmit {
-    transition: all .2s ease;
-}
-
-button[type=submit].buttonSubmit:active {
-    background-color: #2a2a2a;
-}
-
-button[type=submit].submitting {
-    width: 2.6rem;
-    border-radius: 50%;
-}
-
-.error {
-    font-size: 13px;
-    color: red;
-}
-
 @media (max-width: 480px) {
     .formContainer {
         position: relative;

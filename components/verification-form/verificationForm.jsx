@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { isStringValid } from '../../lib/validation';
 import Spinner from '../spinner/spinner';
 import styles from './verificationForm.module.css'
 
@@ -24,7 +25,7 @@ export default function VerificationForm() {
     }
 
     const validateInput = (value) => {
-        if (!value || value === "") {
+        if (!isStringValid(value)) {
             showError("É necessário digitar o código para prosseguir.");
             return false;
         }
@@ -39,8 +40,7 @@ export default function VerificationForm() {
         }
 
         if (response.status === 403) {
-            const errorMessage = await response.json();
-            showError(errorMessage.message);
+            showError("O código informado é inválido.");
         }
 
         if (response.status === 500) {
@@ -76,12 +76,12 @@ export default function VerificationForm() {
                         />
 
                         {hasError && (
-                            <span className={styles.error}>{ message }</span>
+                            <span className="error">{ message }</span>
                         )}
                         
                         <button 
                             type='submit' 
-                            className={`${styles.buttonSubmit} ${isSubmitting ? styles.submitting : ""}` }
+                            className={isSubmitting ? "submitting" : "" }
                             disabled={isSubmitting}
                         >
                             {isSubmitting ? <Spinner /> : "Enviar"}

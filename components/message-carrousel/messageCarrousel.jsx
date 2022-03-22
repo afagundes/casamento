@@ -21,7 +21,107 @@ const messages = [
         id: 4,
         name: "Maria de Paula",
         message: "Pô, que dahora. Casaram. Parabéns!"
-    }
+    },
+    {
+        id: 1,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        id: 2,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 3,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+    },
+    {
+        id: 4,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 1,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        id: 2,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 3,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+    },
+    {
+        id: 4,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 1,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        id: 2,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 3,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+    },
+    {
+        id: 4,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 1,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        id: 2,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 3,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+    },
+    {
+        id: 4,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 1,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        id: 2,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
+    {
+        id: 3,
+        name: "João da silva",
+        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
+    },
+    {
+        id: 4,
+        name: "Maria de Paula",
+        message: "Pô, que dahora. Casaram. Parabéns!"
+    },
 ];
 
 export default function MessageCarrousel() {
