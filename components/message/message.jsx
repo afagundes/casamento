@@ -58,14 +58,14 @@ export default function Message() {
                         <input type="text" name="name" id="name" />
 
                         {hasErrorOnName && (
-                            <span className="error">Preencha o campo 'Seu nome'</span>
+                            <span className="error">Preencha o campo &lsquo;Seu nome&rsquo;</span>
                         )}
 
                         <label htmlFor="messageArea">Sua mensagem</label>
                         <textarea id="messageArea" name="message"></textarea>
 
                         {hasErrorOnMessage && (
-                            <span className="error">Preencha o campo 'Sua mensagem'</span>
+                            <span className="error">Preencha o campo &lsquo;Sua mensagem&lsquo;</span>
                         )}
 
                         <button 
