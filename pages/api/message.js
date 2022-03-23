@@ -19,6 +19,11 @@ export default async function message(req, res) {
 // GET /api/message
 async function handleGetMessages(res) {
     try {
+        if (isDatabaseDisabled()) {
+            res.status(200).json([]);
+            return;
+        }
+
         let messages = await prisma.message.findMany();
         messages = shuffle(messages);
 
@@ -35,6 +40,15 @@ async function handleGetMessages(res) {
 async function handlePostMessage(req, res) {
     const { name, message } = req.body;
 
+    if (isDatabaseDisabled()) {
+        res.status(201).json({
+            name: name,
+            content: message
+        });
+
+        return;
+    }
+
     try {
         const result = await prisma.message.create({
             data: {
@@ -49,6 +63,10 @@ async function handlePostMessage(req, res) {
         console.error("Error creating new message", e);
         res.status(500).json({ error: "Error creating new message" });
     }
+}
+
+function isDatabaseDisabled() {
+    return process.env.NODE_ENV === "development" && process.env.DISABLE_DB === "true";
 }
 
 // Fisher Yates shuffle

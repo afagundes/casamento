@@ -1,0 +1,26 @@
+.clothes__container > h2 {
+    margin-bottom: 2rem;
+}
+
+.message {
+    margin-bottom: 3rem;
+}
+
+.message:last-of-type {
+    margin-bottom: 0;
+}
+
+.clothesInfo > p ~ p {
+    margin-top: .5rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .clothesInfo > p ~ p {
+        margin-top: 1rem;
+    }
+
+    .clothesInfo strong {
+        display: block;
+    }
+}

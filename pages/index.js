@@ -13,6 +13,7 @@ import { getSessionCookieState } from "../lib/sessionCookie"
 
 import 'react-toastify/dist/ReactToastify.min.css'
 import { ToastContainer } from "react-toastify"
+import Clothes from "../components/clothes/clothes"
 
 function Home({ verified, paymentInfo }) {
   const router = useRouter();
@@ -57,7 +58,7 @@ function Home({ verified, paymentInfo }) {
             <Gifts paymentInfo={paymentInfo} />
             <Message addMessageCallback={addMessageCallback} />
             <MessageCarrousel loading={loadingMessages} messages={messages} />
-            <br /> {/* Aqui vai o componente de info de vestimentas */}
+            <Clothes />
             <Location />
             <TimeToWedding />
           </>

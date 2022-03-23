@@ -22,33 +22,30 @@ export default function Message({ addMessageCallback }) {
 
         setIsSubmitting(true);
 
-        try {
-            const response = await fetch('/api/message', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    name: name.trim(),
-                    message: message.trim()
-                })
-            });
+        const response = await fetch('/api/message', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                name: name.trim(),
+                message: message.trim()
+            })
+        });
 
-            const body = await response.json();
+        const body = await response.json();
 
-            if (!response.ok) {
-                console.error(body);
-                toast.error("Não foi possível enviar sua mensagem.");
-                return;
-            }
-
-            nameElem.value = "";
-            messageElem.value = "";
-
-            addMessageCallback(body);
-            toast.success("Sua mensagem foi enviada");
-        }
-        finally {
+        if (!response.ok) {
+            console.error(body);
+            toast.error("Não foi possível enviar sua mensagem.");
             setIsSubmitting(false);
+            return;
         }
+
+        nameElem.value = "";
+        messageElem.value = "";
+
+        addMessageCallback(body);
+        toast.success("Sua mensagem foi enviada");
+        setIsSubmitting(false);
     }
 
     const validateForm = (name, message) => {
