@@ -8,7 +8,7 @@ export default function Clothes() {
 
                 <article className={styles.message}>
                     <p>
-                        Queremos que nossos convidades se sintam confortáveis.
+                        Queremos que nossos convidados se sintam confortáveis.
                     </p>
                     <p>
                         Como nossa cerimônia será intimista, no final da tarde e à noite, 
