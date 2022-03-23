@@ -5,10 +5,10 @@ export default async function message(req, res) {
 
     switch (method) {
         case 'GET':
-            handleGetMessages(res);
+            await handleGetMessages(res);
             break;
         case 'POST':
-            handlePostMessage(req, res);
+            await handlePostMessage(req, res);
             break;
         default:
             res.setHeader('Allow', ['GET', 'POST']);

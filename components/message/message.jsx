@@ -11,8 +11,10 @@ export default function Message({ addMessageCallback }) {
     const [hasErrorOnMessage, setHasErrorOnMessage] = useState(false);
 
     const saveMessage = async (event) => {
-        const name = event.target.name.value;
-        const message = event.target.message.value;
+        const nameElem = event.target.name;
+        const messageElem = event.target.message;
+        const name = nameElem.value;
+        const message = messageElem.value;
 
         if (!validateForm(name, message)) {
             return;
@@ -37,6 +39,9 @@ export default function Message({ addMessageCallback }) {
                 toast.error("Não foi possível enviar sua mensagem.");
                 return;
             }
+
+            nameElem.value = "";
+            messageElem.value = "";
 
             addMessageCallback(body);
             toast.success("Sua mensagem foi enviada");

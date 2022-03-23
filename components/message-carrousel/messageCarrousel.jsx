@@ -59,17 +59,19 @@ export default function MessageCarrousel({ loading, messages }) {
                             </div>
                         </div>    
                     </section>
-                    <div className={styles.carrouselController}>
-                        {messages.map((_, index) => (
-                            <button
-                                key={index} 
-                                className={`${styles.carrouselButton} 
-                                            ${activeMessage === index ? styles.carrouselButtonActive : ''}`}
-                                onClick={() => setActiveMessage(index)}                        
-                            >
-                            </button>
-                        ))}
-                    </div>
+                    {messages.length > 1 && (
+                        <div className={styles.carrouselController}>
+                            {messages.map((_, index) => (
+                                <button
+                                    key={index} 
+                                    className={`${styles.carrouselButton} 
+                                                ${activeMessage === index ? styles.carrouselButtonActive : ''}`}
+                                    onClick={() => setActiveMessage(index)}                        
+                                >
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </>
             )}
 
