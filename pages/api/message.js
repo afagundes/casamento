@@ -19,13 +19,9 @@ export default async function message(req, res) {
 // GET /api/message
 async function handleGetMessages(res) {
     try {
-        const messages = await prisma.message.findMany({
-            orderBy: [
-                {
-                    createdAt: 'desc'
-                }
-            ]
-        });
+        let messages = await prisma.message.findMany();
+        messages = shuffle(messages);
+
         res.status(200).json(messages);
     }
     catch (e) {
@@ -53,4 +49,16 @@ async function handlePostMessage(req, res) {
         console.error("Error creating new message", e);
         res.status(500).json({ error: "Error creating new message" });
     }
+}
+
+// Fisher Yates shuffle
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i);
+        let k = arr[i];
+        arr[i] = arr[j];
+        arr[j] = k;
+    }
+
+    return arr;
 }

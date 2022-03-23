@@ -22,6 +22,7 @@ function Home({ verified, paymentInfo }) {
   useEffect(() => {
     if (verified === false) {
       router.push('/verification');
+      return;
     }
 
     const fetchMessages = async () => {
