@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { isStringValid } from '../../lib/validation';
+import Spinner from '../spinner/spinner';
 
 import styles from './message.module.css';
 
-export default function Message() {
+export default function Message({ addMessageCallback }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [hasErrorOnName, setHasErrorOnName] = useState(false);
     const [hasErrorOnMessage, setHasErrorOnMessage] = useState(false);
@@ -37,6 +38,7 @@ export default function Message() {
                 return;
             }
 
+            addMessageCallback(body);
             toast.success("Sua mensagem foi enviada");
         }
         finally {
@@ -87,9 +89,10 @@ export default function Message() {
 
                         <button 
                             type="submit"
+                            className={isSubmitting ? "submitting" : "" }
                             disabled={isSubmitting}
                         >
-                            Enviar
+                            {isSubmitting ? <Spinner /> : "Enviar"}
                         </button>
                     </form>
                     <div className={styles.formImage} />

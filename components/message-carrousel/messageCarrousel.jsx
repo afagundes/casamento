@@ -2,31 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import Spinner from '../spinner/spinner';
 import styles from './messageCarrousel.module.css';
 
-export default function MessageCarrousel() {
+export default function MessageCarrousel({ loading, messages }) {
     const carrouselRef = useRef();
-    const [messages, setMessages] = useState([]);
     const [activeMessage, setActiveMessage] = useState(0);
-    const [loadingMessages, setLoadingMessages] = useState(true);
-
-    useEffect(() => {
-        const fetchMessages = async () => {
-            setLoadingMessages(true);
-
-            const response = await fetch('/api/message');
-            const body = await response.json();
-    
-            if (!response.ok) {
-                console.error(body);
-                return [];
-            }
-
-            setLoadingMessages(false);
-
-            setMessages(body);
-        }
-
-        fetchMessages();
-    }, []);
 
     useEffect(() => {
         const showActiveMessage = () => {
@@ -53,7 +31,7 @@ export default function MessageCarrousel() {
 
     return (
         <>
-            {messages.length > 0 && loadingMessages === false && (
+            {messages.length > 0 && loading === false && (
                 <>
                     <section className={styles.messageCarrousel}>
                         <div className={`container_gray ${styles.containerCarrousel}`}>
@@ -95,14 +73,14 @@ export default function MessageCarrousel() {
                 </>
             )}
 
-            {messages.length === 0 && loadingMessages === false && (
+            {messages.length === 0 && loading === false && (
                 <section className='container_gray'>
                     <p>Ainda não há nenhuma mensagem, mas a sua pode ser a primeira.</p>
                     <p>Escreva uma mensagem para nós no formulário acima 😁</p>
                 </section>
             )}
 
-            {loadingMessages && (
+            {loading && (
                 <section className='container_gray'>
                     <Spinner />
                 </section>

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Couple from "../components/couple/couple"
 import Gifts from "../components/gifts/gifts"
 import Layout from "../components/layout/layout"
@@ -16,12 +16,35 @@ import { ToastContainer } from "react-toastify"
 
 function Home({ verified, paymentInfo }) {
   const router = useRouter();
+  const [messages, setMessages] = useState([]);
+  const [loadingMessages, setLoadingMessages] = useState(true);
 
   useEffect(() => {
     if (verified === false) {
       router.push('/verification');
     }
+
+    const fetchMessages = async () => {
+      setLoadingMessages(true);
+
+      const response = await fetch('/api/message');
+      const body = await response.json();
+
+      if (!response.ok) {
+          console.error(body);
+          return [];
+      }
+
+      setMessages(body);
+      setLoadingMessages(false);
+    }
+
+    fetchMessages();
   }, [router, verified]);
+
+  const addMessageCallback = (message) => {
+    setMessages(messages => [ message, ...messages ]);
+  }
 
   return (
     <>
@@ -31,8 +54,8 @@ function Home({ verified, paymentInfo }) {
             <Welcome />
             <Couple />
             <Gifts paymentInfo={paymentInfo} />
-            <Message />
-            <MessageCarrousel />
+            <Message addMessageCallback={addMessageCallback} />
+            <MessageCarrousel loading={loadingMessages} messages={messages} />
             <br /> {/* Aqui vai o componente de info de vestimentas */}
             <Location />
             <TimeToWedding />

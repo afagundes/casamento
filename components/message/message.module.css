@@ -22,8 +22,15 @@
 .formContainer > form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: var(--background-gray);
     padding: 2rem;
+}
+
+.formContainer > form label {
+    width: 100%;
+    text-align: left;
 }
 
 .formContainer > form label:last-of-type {

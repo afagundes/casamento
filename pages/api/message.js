@@ -19,7 +19,13 @@ export default async function message(req, res) {
 // GET /api/message
 async function handleGetMessages(res) {
     try {
-        const messages = await prisma.message.findMany();
+        const messages = await prisma.message.findMany({
+            orderBy: [
+                {
+                    createdAt: 'desc'
+                }
+            ]
+        });
         res.status(200).json(messages);
     }
     catch (e) {
@@ -34,14 +40,12 @@ async function handlePostMessage(req, res) {
     const { name, message } = req.body;
 
     try {
-        /*const result = await prisma.message.create({
+        const result = await prisma.message.create({
             data: {
                 name: name,
                 content: message
             }
-        });*/
-
-        const result = [];
+        });
 
         res.status(201).json(result);
     }
