@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { isStringValid } from '../../lib/validation';
+
 import styles from './message.module.css';
 
 export default function Message() {
@@ -11,37 +13,52 @@ export default function Message() {
         const name = event.target.name.value;
         const message = event.target.message.value;
 
-        if (!validateForm(name, message))
+        if (!validateForm(name, message)) {
             return;
+        }
 
         setIsSubmitting(true);
 
-        const response = await fetch('/api/message', {
-            method: 'POST',
-            body: JSON.stringify({
-                name: name.trim(),
-                message: message.trim()
-            })
-        });
+        try {
+            const response = await fetch('/api/message', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    name: name.trim(),
+                    message: message.trim()
+                })
+            });
 
-        console.log(response);
+            const body = await response.json();
 
-        setIsSubmitting(false);
+            if (!response.ok) {
+                console.error(body);
+                toast.error("Não foi possível enviar sua mensagem.");
+                return;
+            }
+
+            toast.success("Sua mensagem foi enviada");
+        }
+        finally {
+            setIsSubmitting(false);
+        }
     }
 
     const validateForm = (name, message) => {
-        setHasErrorOnName(false);
-        setHasErrorOnMessage(false);
+        let { errorOnName, errorOnMessage } = false;
 
         if (!isStringValid(name)) {
-            setHasErrorOnName(true);
+            errorOnName = true;
         }
 
         if (!isStringValid(message)) {
-            setHasErrorOnMessage(true);
+            errorOnMessage = true;
         }
 
-        return hasErrorOnName || hasErrorOnMessage ? false : true;
+        setHasErrorOnName(errorOnName);
+        setHasErrorOnMessage(errorOnMessage);
+
+        return errorOnName || errorOnMessage ? false : true;
     }
 
     return (

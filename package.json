@@ -8,15 +8,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^3.11.0",
     "cookies": "^0.8.0",
     "gpix": "^1.1.6",
     "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-toastify": "^8.2.0"
   },
   "devDependencies": {
     "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8"
+    "eslint-config-next": "12.0.8",
+    "prisma": "^3.11.0"
   }
 }

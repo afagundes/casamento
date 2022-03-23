@@ -1,4 +1,6 @@
-export default function message(req, res) {
+import prisma from "../../lib/prisma";
+
+export default async function message(req, res) {
     const { method } = req;
 
     switch (method) {
@@ -14,15 +16,37 @@ export default function message(req, res) {
     }
 }
 
-function handleGetMessages(res) {
-    res.status(200).json({ message: 'OK' });
+// GET /api/message
+async function handleGetMessages(res) {
+    try {
+        const messages = await prisma.message.findMany();
+        res.status(200).json(messages);
+    }
+    catch (e) {
+        console.error("Error fetching messages from database", e);
+        res.status(500).json({ error: "Error fetching messages" });
+    }
 }
 
-function handlePostMessage(req, res) {
-    const formMessage = JSON.parse(req.body);
+// POST /api/message
+// Required fields in body: name, message
+async function handlePostMessage(req, res) {
+    const { name, message } = req.body;
 
-    console.log(formMessage.name);
-    console.log(formMessage.message);
+    try {
+        /*const result = await prisma.message.create({
+            data: {
+                name: name,
+                content: message
+            }
+        });*/
 
-    res.status(201).end();
+        const result = [];
+
+        res.status(201).json(result);
+    }
+    catch (e) {
+        console.error("Error creating new message", e);
+        res.status(500).json({ error: "Error creating new message" });
+    }
 }

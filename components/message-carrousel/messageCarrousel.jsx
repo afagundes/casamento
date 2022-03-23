@@ -1,149 +1,40 @@
 import { useState, useEffect, useRef } from 'react';
+import Spinner from '../spinner/spinner';
 import styles from './messageCarrousel.module.css';
-
-const messages = [
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 1,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Estamos muito felizes com o casamento. Desejamos muita sorte aí. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-    },
-    {
-        id: 2,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-    {
-        id: 3,
-        name: "João da silva",
-        message: "Estamos muito felizes com o casamento. Desejamos muita sorte aí."
-    },
-    {
-        id: 4,
-        name: "Maria de Paula",
-        message: "Pô, que dahora. Casaram. Parabéns!"
-    },
-];
 
 export default function MessageCarrousel() {
     const carrouselRef = useRef();
+    const [messages, setMessages] = useState([]);
     const [activeMessage, setActiveMessage] = useState(0);
+    const [loadingMessages, setLoadingMessages] = useState(true);
 
     useEffect(() => {
-        const period = 60000;
-        const interval = setInterval(() => {
-            setActiveMessage(activeMessage => activeMessage + 1 === messages.length ? 0 : activeMessage + 1);
-        }, period);
+        const fetchMessages = async () => {
+            setLoadingMessages(true);
 
-        return () => {
-            clearInterval(interval);
+            const response = await fetch('/api/message');
+            const body = await response.json();
+    
+            if (!response.ok) {
+                console.error(body);
+                return [];
+            }
+
+            setLoadingMessages(false);
+
+            setMessages(body);
         }
+
+        fetchMessages();
     }, []);
 
     useEffect(() => {
         const showActiveMessage = () => {
             carrouselRef.current.style.transform = `translateX(calc((100vw - var(--scrollbar-width)) * -${activeMessage}))`;
         }
-        showActiveMessage();
+
+        if (messages.length > 0)
+            showActiveMessage();
     }, [activeMessage]);
 
     const swipeRight = () => {
@@ -162,43 +53,60 @@ export default function MessageCarrousel() {
 
     return (
         <>
-            <section className={styles.messageCarrousel}>
-                <div className={`container_gray ${styles.containerCarrousel}`}>
-                    <div className={styles.carrousel} ref={carrouselRef}>
-                        {messages.map((message, index) => (
-                            <div 
-                                key={index}
-                                className={styles.carrouselItem}
-                            >
-                                <article className={styles.message}>
-                                    <h3>{message.name}</h3>
-                                    <p>&quot;{message.message}&quot;</p>
+            {messages.length > 0 && loadingMessages === false && (
+                <>
+                    <section className={styles.messageCarrousel}>
+                        <div className={`container_gray ${styles.containerCarrousel}`}>
+                            <div className={styles.carrousel} ref={carrouselRef}>
+                                {messages.map((message, index) => (
+                                    <div 
+                                        key={index}
+                                        className={styles.carrouselItem}
+                                    >
+                                        <article className={styles.message}>
+                                            <h3>{message.name}</h3>
+                                            <p>&quot;{message.content}&quot;</p>
 
-                                    <div 
-                                        className={`${styles.swipeButton} ${styles.swipeLeft}`}
-                                        onClick={() => swipeLeft()}
-                                    ></div>
-                                    <div 
-                                        className={`${styles.swipeButton} ${styles.swipeRight}`}
-                                        onClick={() => swipeRight()}
-                                    ></div>
-                                </article>
-                            </div>    
+                                            <div 
+                                                className={`${styles.swipeButton} ${styles.swipeLeft}`}
+                                                onClick={() => swipeLeft()}
+                                            ></div>
+                                            <div 
+                                                className={`${styles.swipeButton} ${styles.swipeRight}`}
+                                                onClick={() => swipeRight()}
+                                            ></div>
+                                        </article>
+                                    </div>    
+                                ))}
+                            </div>
+                        </div>    
+                    </section>
+                    <div className={styles.carrouselController}>
+                        {messages.map((_, index) => (
+                            <button
+                                key={index} 
+                                className={`${styles.carrouselButton} 
+                                            ${activeMessage === index ? styles.carrouselButtonActive : ''}`}
+                                onClick={() => setActiveMessage(index)}                        
+                            >
+                            </button>
                         ))}
                     </div>
-                </div>    
-            </section>
-            <div className={styles.carrouselController}>
-                {messages.map((_, index) => (
-                    <button
-                        key={index} 
-                        className={`${styles.carrouselButton} 
-                                    ${activeMessage === index ? styles.carrouselButtonActive : ''}`}
-                        onClick={() => setActiveMessage(index)}                        
-                    >
-                    </button>
-                ))}
-            </div>
+                </>
+            )}
+
+            {messages.length === 0 && loadingMessages === false && (
+                <section className='container_gray'>
+                    <p>Ainda não há nenhuma mensagem, mas a sua pode ser a primeira.</p>
+                    <p>Escreva uma mensagem para nós no formulário acima 😁</p>
+                </section>
+            )}
+
+            {loadingMessages && (
+                <section className='container_gray'>
+                    <Spinner />
+                </section>
+            )}
         </>
     );
 }
