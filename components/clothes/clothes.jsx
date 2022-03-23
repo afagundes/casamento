@@ -18,13 +18,13 @@ export default function Clothes() {
 
                 <article className={`${styles.message} ${styles.clothesInfo}`}>
                     <p>
-                        <strong>Para os homens:</strong> Calça e camisa. O usa da gravata e terno é opcional.
+                        <strong>Para os homens:</strong> Calça e camisa. O uso da gravata e terno é opcional.
                     </p>
                     <p>
-                        <strong>Para as mulheres:</strong> Vestido ou saia. Seja curto, longo ou midi (como se sentir à vontade).
+                        <strong>Para as mulheres:</strong> Vestidos e saias são ótimas opções. Seja longo ou midi. Como se sentir à vontade.
                     </p>
                     <p>
-                        Aconselhamos saltos baixos e confortáveis.
+                        Só aconselhamos saltos baixos e confortáveis.
                     </p>
                 </article>
             </div>
