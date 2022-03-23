@@ -16,6 +16,10 @@
 
 /* Mobile */
 @media (max-width: 480px) {
+    .clothes__container > h2 {
+        white-space: nowrap;
+    }
+
     .clothesInfo > p ~ p {
         margin-top: 1rem;
     }
