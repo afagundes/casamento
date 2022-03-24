@@ -17,5 +17,5 @@ model Message {
   id        Int       @default(autoincrement()) @id
   createdAt DateTime  @default(now())
   name      String    @db.VarChar(100)
-  content   String
+  content   String    @db.Text
 }
