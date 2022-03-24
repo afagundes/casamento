@@ -7,6 +7,7 @@ const Location = () => {
 
             <p><strong>Sítio São Jorge - Jardim Secreto</strong></p>
             <p>São Bernardo do Campo - SP</p>
+            <p>Estacionamento no local - Valor R$30,00</p>
             <p>Horário: 15h30</p>
 
             <iframe 
