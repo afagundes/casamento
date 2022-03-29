@@ -35,6 +35,10 @@
     position: relative;
 }
 
+.message > h3 {
+    text-transform: uppercase;
+}
+
 .message > p {
     margin-top: calc(var(--section-padding) / 3);
     color: #6b6b6b;
