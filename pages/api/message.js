@@ -61,7 +61,7 @@ async function handlePostMessage(req, res) {
 }
 
 function isDatabaseDisabled() {
-    return process.env.NODE_ENV === "development" && process.env.DISABLE_DB === "true";
+    return process.env.DISABLE_DB === "true";
 }
 
 // Fisher Yates shuffle
