@@ -21,17 +21,6 @@ const Timer = ({ eventDate }) => {
     
                 const diff = eventTime.getTime() - now.getTime();
     
-                if (diff <= 0) {
-                    setDays(zero);
-                    setHours(zero);
-                    setMinutes(zero);
-                    setSeconds(zero);
-    
-                    clearInterval(intervalTimer)
-    
-                    return;
-                }
-    
                 const diffDays = parseInt(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 const diffHours = parseInt(diff / (1000 * 60 * 60) % 24).toString().padStart(2, '0');
                 const diffMinutes = parseInt(diff / (1000 * 60) % 60).toString().padStart(2, '0');
